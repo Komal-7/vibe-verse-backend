@@ -102,13 +102,14 @@ def execute_custom_query():
     try:
         print(sparql_query)
         results = graph.query(sparql_query)
-        print(results)
         if query_key == "get all artist names":
             response = [{"artistName": str(row.artistName)} for row in results]
         elif query_key == "all albums of coldplay":
             response = [{"albumName": str(row.albumName)} for row in results]
         elif query_key == "get count and avg popularity of taylor swift's tracks for each album":
             response = [{"albumName": str(row.albumName), "count": str(row.songCount),  "averagePopularity": str(row.averagePopularity)} for row in results]
+        elif query_key == "rewind to the 2000s" :
+            response = [{"trackName": str(row.trackName),"artistName": str(row.artistName),"releaseDate": str(row.releaseDate),"popularity": str(row.popularity)} for row in results]
         else:
             response = []
         return jsonify(response)

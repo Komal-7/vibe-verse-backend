@@ -35,6 +35,20 @@ CUSTOM_QUERIES = {
         }
         GROUP BY ?albumName
         ORDER BY DESC(?songCount)
+    """,
+    "rewind to the 2000s" : """
+        PREFIX rdf: <http://www.semanticweb.org/musicontology#>
+        SELECT ?trackName ?artistName ?releaseDate ?popularity
+        WHERE {
+            ?track a rdf:Track ;
+                    rdf:name ?trackName ;
+                    rdf:releaseDate ?releaseDate ;
+                    rdf:popularity ?popularity ;
+                    rdf:performedBy ?artist .
+            ?artist rdf:name ?artistName .
+            FILTER(?releaseDate >= "2000-01-01" && ?releaseDate < "2010-01-01")
+        }
+        ORDER BY DESC(?popularity)
     """
 }
 
