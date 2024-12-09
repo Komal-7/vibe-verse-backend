@@ -2745,27 +2745,6 @@
     <ns1:performedBy rdf:resource="_:artist_6Im9k8u9iIzKMrmV7BWtlF"/>
     <ns1:partOfAlbum rdf:resource="_:album_6Im9k8u9iIzKMrmV7BWtlF"/>
   </rdf:Description>
-  <rdf:Description rdf:about="_:track_7DgCGS9O2bfgog1VBcjjbZ">
-    <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Track"/>
-    <ns1:name>Anti-Hero</ns1:name>
-    <ns1:popularity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</ns1:popularity>
-    <ns1:acousticness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.121</ns1:acousticness>
-    <ns1:danceability rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.633</ns1:danceability>
-    <ns1:duration_ms rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200690</ns1:duration_ms>
-    <ns1:energy rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.648</ns1:energy>
-    <ns1:instrumentalness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.62e-06</ns1:instrumentalness>
-    <ns1:key rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</ns1:key>
-    <ns1:liveness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.161</ns1:liveness>
-    <ns1:loudness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-6.645</ns1:loudness>
-    <ns1:mode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns1:mode>
-    <ns1:speechiness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.062</ns1:speechiness>
-    <ns1:tempo rdf:datatype="http://www.w3.org/2001/XMLSchema#float">96.888</ns1:tempo>
-    <ns1:time_signature rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</ns1:time_signature>
-    <ns1:valence rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.49</ns1:valence>
-    <ns1:releaseDate>2023-02-08</ns1:releaseDate>
-    <ns1:performedBy rdf:resource="_:artist_7DgCGS9O2bfgog1VBcjjbZ"/>
-    <ns1:partOfAlbum rdf:resource="_:album_7DgCGS9O2bfgog1VBcjjbZ"/>
-  </rdf:Description>
   <rdf:Description rdf:about="_:track_0jiBVBJkLrlGLgrIVmd3VK">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Track"/>
     <ns1:name>Jenny from the Block (feat. Jadakiss &amp; Styles P.) - Track Masters Remix</ns1:name>
@@ -12940,7 +12919,7 @@
     <ns1:valence rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.339</ns1:valence>
     <ns1:releaseDate>2024-06-21</ns1:releaseDate>
     <ns1:performedBy rdf:resource="_:artist_1YsU8rW2u8z4F0pwOBQ4Ea"/>
-    <ns1:partOfAlbum rdf:resource="_:album_1YsU8rW2u8z4F0pwOBQ4Ea"/>
+    <ns1:partOfAlbum rdf:resource="_:album_6iYxkBHyMpsgVxUgfy5fSx"/>
   </rdf:Description>
   <rdf:Description rdf:about="_:track_46eHxWRKmtYhUHPDRgclt6">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Track"/>
@@ -17256,7 +17235,7 @@
     <ns1:valence rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.487</ns1:valence>
     <ns1:releaseDate>2024-04-19</ns1:releaseDate>
     <ns1:performedBy rdf:resource="_:artist_799KrpEbhZp0MHeiA8YK9P"/>
-    <ns1:partOfAlbum rdf:resource="_:album_799KrpEbhZp0MHeiA8YK9P"/>
+    <ns1:partOfAlbum rdf:resource="_:album_2OzhQlSqBEmt7hmkYxfT6m"/>
   </rdf:Description>
   <rdf:Description rdf:about="_:track_01aojvlRe3mwlEwTnLVUbs">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Track"/>
@@ -19143,7 +19122,7 @@
     <ns1:valence rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.664</ns1:valence>
     <ns1:releaseDate>2024-08-23</ns1:releaseDate>
     <ns1:performedBy rdf:resource="_:artist_2sKHevALE8DKDkwEo04Pbh"/>
-    <ns1:partOfAlbum rdf:resource="_:album_2sKHevALE8DKDkwEo04Pbh"/>
+    <ns1:partOfAlbum rdf:resource="_:album_6iYxkBHyMpsgVxUgfy5fSx"/>
   </rdf:Description>
   <rdf:Description rdf:about="_:track_77UjLW8j5UAGAGVGhR5oUK">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Track"/>
@@ -20763,27 +20742,6 @@
   <rdf:Description rdf:about="_:album_1udwFobQ1JoOdWPQrp2b6u">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
     <ns1:name>The Forever Story (Extended Version)</ns1:name>
-  </rdf:Description>
-  <rdf:Description rdf:about="_:track_3CeCwYWvdfXbZLXFhBrbnf">
-    <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Track"/>
-    <ns1:name>Love Story (Taylor’s Version)</ns1:name>
-    <ns1:popularity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">76</ns1:popularity>
-    <ns1:acousticness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.135</ns1:acousticness>
-    <ns1:danceability rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.626</ns1:danceability>
-    <ns1:duration_ms rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">235767</ns1:duration_ms>
-    <ns1:energy rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.79</ns1:energy>
-    <ns1:instrumentalness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.97e-06</ns1:instrumentalness>
-    <ns1:key rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</ns1:key>
-    <ns1:liveness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0989</ns1:liveness>
-    <ns1:loudness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-4.302</ns1:loudness>
-    <ns1:mode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns1:mode>
-    <ns1:speechiness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0311</ns1:speechiness>
-    <ns1:tempo rdf:datatype="http://www.w3.org/2001/XMLSchema#float">119.082</ns1:tempo>
-    <ns1:time_signature rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</ns1:time_signature>
-    <ns1:valence rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.416</ns1:valence>
-    <ns1:releaseDate>2021-02-12</ns1:releaseDate>
-    <ns1:performedBy rdf:resource="_:artist_3CeCwYWvdfXbZLXFhBrbnf"/>
-    <ns1:partOfAlbum rdf:resource="_:album_3CeCwYWvdfXbZLXFhBrbnf"/>
   </rdf:Description>
   <rdf:Description rdf:about="_:track_6jezfOPKkARrn1J8AwHTE4">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Track"/>
@@ -25940,7 +25898,7 @@
     <ns1:valence rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.22</ns1:valence>
     <ns1:releaseDate>2024-04-19</ns1:releaseDate>
     <ns1:performedBy rdf:resource="_:artist_2fPvQfGQEZOKtJ9qXeL4x8"/>
-    <ns1:partOfAlbum rdf:resource="_:album_2fPvQfGQEZOKtJ9qXeL4x8"/>
+    <ns1:partOfAlbum rdf:resource="_:album_2OzhQlSqBEmt7hmkYxfT6m"/>
   </rdf:Description>
   <rdf:Description rdf:about="_:album_25nujfApehfbLZ18GaSp0K">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
@@ -29962,27 +29920,6 @@
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Artist"/>
     <ns1:name>Marshmello</ns1:name>
   </rdf:Description>
-  <rdf:Description rdf:about="_:track_1Fj0T1XKuhRu7EZzJ7NJIK">
-    <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Track"/>
-    <ns1:name>Delicate - Recorded at The Tracking Room Nashville</ns1:name>
-    <ns1:popularity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</ns1:popularity>
-    <ns1:acousticness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.577</ns1:acousticness>
-    <ns1:danceability rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.664</ns1:danceability>
-    <ns1:duration_ms rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">228461</ns1:duration_ms>
-    <ns1:energy rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.447</ns1:energy>
-    <ns1:instrumentalness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0</ns1:instrumentalness>
-    <ns1:key rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns1:key>
-    <ns1:liveness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0968</ns1:liveness>
-    <ns1:loudness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-8.404</ns1:loudness>
-    <ns1:mode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns1:mode>
-    <ns1:speechiness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0341</ns1:speechiness>
-    <ns1:tempo rdf:datatype="http://www.w3.org/2001/XMLSchema#float">90.976</ns1:tempo>
-    <ns1:time_signature rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</ns1:time_signature>
-    <ns1:valence rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.431</ns1:valence>
-    <ns1:releaseDate>2018-04-13</ns1:releaseDate>
-    <ns1:performedBy rdf:resource="_:artist_1Fj0T1XKuhRu7EZzJ7NJIK"/>
-    <ns1:partOfAlbum rdf:resource="_:album_1Fj0T1XKuhRu7EZzJ7NJIK"/>
-  </rdf:Description>
   <rdf:Description rdf:about="_:artist_2KukL7UlQ8TdvpaA7bY3ZJ">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Artist"/>
     <ns1:name>Beyoncé</ns1:name>
@@ -31797,27 +31734,6 @@
     <ns1:releaseDate>2021-12-02</ns1:releaseDate>
     <ns1:performedBy rdf:resource="_:artist_0sTlGEld0h8kIPZaKDYUf4"/>
     <ns1:partOfAlbum rdf:resource="_:album_0sTlGEld0h8kIPZaKDYUf4"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="_:track_5eGX87IiKsGuzS3iw4CfCX">
-    <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Track"/>
-    <ns1:name>September - Recorded at The Tracking Room Nashville</ns1:name>
-    <ns1:popularity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</ns1:popularity>
-    <ns1:acousticness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.412</ns1:acousticness>
-    <ns1:danceability rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.641</ns1:danceability>
-    <ns1:duration_ms rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">187824</ns1:duration_ms>
-    <ns1:energy rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.444</ns1:energy>
-    <ns1:instrumentalness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.00121</ns1:instrumentalness>
-    <ns1:key rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</ns1:key>
-    <ns1:liveness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.179</ns1:liveness>
-    <ns1:loudness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-6.482</ns1:loudness>
-    <ns1:mode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns1:mode>
-    <ns1:speechiness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0239</ns1:speechiness>
-    <ns1:tempo rdf:datatype="http://www.w3.org/2001/XMLSchema#float">107.081</ns1:tempo>
-    <ns1:time_signature rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</ns1:time_signature>
-    <ns1:valence rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.588</ns1:valence>
-    <ns1:releaseDate>2018-04-13</ns1:releaseDate>
-    <ns1:performedBy rdf:resource="_:artist_5eGX87IiKsGuzS3iw4CfCX"/>
-    <ns1:partOfAlbum rdf:resource="_:album_5eGX87IiKsGuzS3iw4CfCX"/>
   </rdf:Description>
   <rdf:Description rdf:about="_:album_0PG9fbaaHFHfre2gUVo7AN">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
@@ -36075,10 +35991,6 @@
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Artist"/>
     <ns1:name>Lady Gaga</ns1:name>
   </rdf:Description>
-  <rdf:Description rdf:about="_:album_7DgCGS9O2bfgog1VBcjjbZ">
-    <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
-    <ns1:name>Pop Hits 2023</ns1:name>
-  </rdf:Description>
   <rdf:Description rdf:about="_:album_5JqZ3oqF00jkT81foAFvqg">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
     <ns1:name>Prisoner (feat. Dua Lipa)</ns1:name>
@@ -36253,7 +36165,7 @@
   </rdf:Description>
   <rdf:Description rdf:about="_:album_3FeVmId7tL5YN8B7R3imoM">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
-    <ns1:name>My Universe</ns1:name>
+    <ns1:name>Music of the Spheres</ns1:name>
   </rdf:Description>
   <rdf:Description rdf:about="_:album_3OsHe57toPHcaJjPt0PEKx">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
@@ -36458,10 +36370,6 @@
   <rdf:Description rdf:about="_:artist_5CCr8msaN3MhgqBoa9yWhH">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Artist"/>
     <ns1:name>PinkPantheress</ns1:name>
-  </rdf:Description>
-  <rdf:Description rdf:about="_:album_5eGX87IiKsGuzS3iw4CfCX">
-    <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
-    <ns1:name>Spotify Singles</ns1:name>
   </rdf:Description>
   <rdf:Description rdf:about="_:artist_48UPSzbZjgc449aqz8bxox">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Artist"/>
@@ -37913,10 +37821,6 @@
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
     <ns1:name>My Turn (Deluxe)</ns1:name>
   </rdf:Description>
-  <rdf:Description rdf:about="_:album_2sKHevALE8DKDkwEo04Pbh">
-    <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
-    <ns1:name>WE PRAY</ns1:name>
-  </rdf:Description>
   <rdf:Description rdf:about="_:artist_5AJ9hqTS2wcFQCELCFRO7A">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Artist"/>
     <ns1:name>Tommy Richman</ns1:name>
@@ -38161,10 +38065,6 @@
   <rdf:Description rdf:about="_:artist_2mbzyuS4fL72fHrmiWObXQ">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Artist"/>
     <ns1:name>YoungBoy Never Broke Again</ns1:name>
-  </rdf:Description>
-  <rdf:Description rdf:about="_:album_2fPvQfGQEZOKtJ9qXeL4x8">
-    <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
-    <ns1:name>THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY</ns1:name>
   </rdf:Description>
   <rdf:Description rdf:about="_:album_5yY9lUy8nbvjM1Uyo1Uqoc">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
@@ -38953,10 +38853,6 @@
   <rdf:Description rdf:about="_:album_03tqyYWC9Um2ZqU0ZN849H">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
     <ns1:name>Flockaveli</ns1:name>
-  </rdf:Description>
-  <rdf:Description rdf:about="_:album_3CeCwYWvdfXbZLXFhBrbnf">
-    <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
-    <ns1:name>Love Story (Taylor’s Version)</ns1:name>
   </rdf:Description>
   <rdf:Description rdf:about="_:album_4nr9EKJLO86ExldJ1gaULG">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
@@ -40021,10 +39917,6 @@
   <rdf:Description rdf:about="_:album_6hdvyB8BlHx15z9KBxxuA6">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
     <ns1:name>Kamikaze</ns1:name>
-  </rdf:Description>
-  <rdf:Description rdf:about="_:album_1YsU8rW2u8z4F0pwOBQ4Ea">
-    <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
-    <ns1:name>feelslikeimfallinginlove</ns1:name>
   </rdf:Description>
   <rdf:Description rdf:about="_:artist_4PNrOLkDk2ucagWg9DLhOS">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Artist"/>
@@ -41182,10 +41074,6 @@
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
     <ns1:name>Falling</ns1:name>
   </rdf:Description>
-  <rdf:Description rdf:about="_:album_1Fj0T1XKuhRu7EZzJ7NJIK">
-    <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
-    <ns1:name>Spotify Singles</ns1:name>
-  </rdf:Description>
   <rdf:Description rdf:about="_:album_1O9AseW10CTi6nBLoj0O6K">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
     <ns1:name>SKIN OF MY TEETH</ns1:name>
@@ -41641,10 +41529,6 @@
   <rdf:Description rdf:about="_:album_5iwz1NiezX7WWjnCgY5TH4">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
     <ns1:name>Calma (Remix)</ns1:name>
-  </rdf:Description>
-  <rdf:Description rdf:about="_:album_799KrpEbhZp0MHeiA8YK9P">
-    <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Album"/>
-    <ns1:name>THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY</ns1:name>
   </rdf:Description>
   <rdf:Description rdf:about="_:artist_03ur1dTcvGQj3Y1b6PsONX">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Artist"/>
