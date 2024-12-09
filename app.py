@@ -84,7 +84,11 @@ def recommend_music():
             {"trackName": str(row.name), "artistName": str(row.artistName)}
             for row in results
         ]
-        return jsonify(recommendations)
+        returnValue = {
+            "query": sparql_query.strip(),  # Include the current query
+            "recommendations": recommendations,  # Include the recommendations
+        }
+        return jsonify(returnValue)
     except Exception as e:
         return jsonify({"error": "Failed to fetch recommendations"}), 500
 
@@ -112,7 +116,11 @@ def execute_custom_query():
             response = [{"trackName": str(row.trackName),"artistName": str(row.artistName),"releaseDate": str(row.releaseDate),"popularity": str(row.popularity)} for row in results]
         else:
             response = []
-        return jsonify(response)
+        returnValue = {
+            "query": sparql_query.strip(),  # Include the current query
+            "recommendations": response,  # Include the recommendations
+        }
+        return jsonify(returnValue)
     except Exception as e:
         return jsonify({"error": "Failed to execute custom query", "details": str(e)}), 500
 
