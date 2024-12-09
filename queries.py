@@ -49,6 +49,25 @@ CUSTOM_QUERIES = {
             FILTER(?releaseDate >= "2000-01-01" && ?releaseDate < "2010-01-01")
         }
         ORDER BY DESC(?popularity)
+    """,
+    "same energy as song calm down" : """
+        PREFIX rdf: <http://www.semanticweb.org/musicontology#>
+        SELECT DISTINCT ?similarTrackName ?artistName ?energy
+        WHERE {
+            ?calmDownTrack a rdf:Track ;
+                    rdf:name "Calm Down (with Selena Gomez)" ;
+                    rdf:energy ?calmDownEnergy .
+
+            ?track a rdf:Track ;
+                    rdf:name ?similarTrackName ;
+                    rdf:energy ?energy ;
+                    rdf:performedBy ?artist .
+            ?artist rdf:name ?artistName .
+
+            FILTER(ABS(?energy - ?calmDownEnergy) < 0.05)
+            FILTER(?similarTrackName != "Calm Down (with Selena Gomez)")
+        }
+        ORDER BY ?similarTrackName
     """
 }
 

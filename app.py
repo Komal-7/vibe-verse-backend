@@ -114,6 +114,8 @@ def execute_custom_query():
             response = [{"albumName": str(row.albumName), "count": str(row.songCount),  "averagePopularity": str(row.averagePopularity)} for row in results]
         elif query_key == "rewind to the 2000s" :
             response = [{"trackName": str(row.trackName),"artistName": str(row.artistName),"releaseDate": str(row.releaseDate),"popularity": str(row.popularity)} for row in results]
+        elif query_key == "same energy as song calm down" :
+            response = [{"similarTrackName": str(row.similarTrackName),"artistName": str(row.artistName),"energy": str(row.energy)} for row in results]
         else:
             response = []
         returnValue = {
