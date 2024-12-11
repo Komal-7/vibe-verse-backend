@@ -1,20 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from rdflib import Graph
-import spotipy
-from spotipy.oauth2 import SpotifyClientCredentials
+from queries import CUSTOM_QUERIES
 
 app = Flask(__name__)
 CORS(app)
-
-# Spotify API setup
-SPOTIFY_CLIENT_ID = 'your_client_id'
-SPOTIFY_CLIENT_SECRET = 'your_client_secret'
-
-spotify = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
-    client_id=SPOTIFY_CLIENT_ID,
-    client_secret=SPOTIFY_CLIENT_SECRET
-))
 
 # Load RDF data into an RDFLib Graph
 rdf_file_path = "vibe-verse-backend/songs_data.rdf"
@@ -49,7 +39,7 @@ CUSTOM_COMBINATIONS_FILTERS = {
     'melancholic with acoustic feel': '?energy < 0.3 && ?acousticness > 0.8',
     'vibrant energy for party time': '?danceability > 0.8 && ?energy > 0.7',
     'light effort during workout': '?energy < 0.5 && ?danceability > 0.6',
-    'easy focus during study time': '?energy < 0.4 && ?instrumentalness > 0.6',
+    'calm study time': '?energy < 0.4 && ?instrumentalness > 0.6',
     'relaxed ride for driving through nature': '?energy < 0.5 && ?tempo <= 100',
 }
 
@@ -161,6 +151,42 @@ def surprise_me():
     except Exception as e:
         return jsonify({"error": "Failed to fetch random songs", "details": str(e)}), 500
 
+def get_custom_query_sparql(query_key):
+    return CUSTOM_QUERIES.get(query_key)
 
+@app.route('/api/custom-query', methods=['POST'])
+def execute_custom_query():
+    data = request.json
+    query_key = data.get("filter", "").lower().strip()
+    sparql_query = get_custom_query_sparql(query_key)
+    if not sparql_query:
+        return jsonify({"error": "Invalid custom query selected"}), 400
+
+    try:
+        results = graph.query(sparql_query)
+        if query_key == "get all artist names":
+            response = [{"artistName": str(row.artistName)} for row in results]
+        elif query_key == "all albums of coldplay":
+            response = [{"albumName": str(row.albumName)} for row in results]
+        elif query_key == "get count and avg popularity of taylor swift's tracks for each album":
+            response = [{"albumName": str(row.albumName), "count": str(row.songCount),  "averagePopularity": str(row.averagePopularity)} for row in results]
+        elif query_key == "rewind to the 2000s" :
+            response = [{"trackName": str(row.trackName),"artistName": str(row.artistName),"releaseDate": str(row.releaseDate),"popularity": str(row.popularity)} for row in results]
+        elif query_key == "same energy as song calm down" :
+            response = [{"similarTrackName": str(row.similarTrackName),"artistName": str(row.artistName),"energy": str(row.energy)} for row in results]
+        elif query_key == "gradual tempo increase" :
+            response = [{"trackName": str(row.trackName),"tempoRange": str(row.tempoRange),"tempo": str(row.tempo)} for row in results]
+        elif query_key == "transition my mood" :
+            response = [{"trackName": str(row.trackName),"energy": str(row.energy),"valence": str(row.valence),"valenceRange": str(row.valenceRange)} for row in results]
+        else:
+            response = []
+        returnValue = {
+            "query": sparql_query.strip(),  # Include the current query
+            "recommendations": response,  # Include the recommendations
+        }
+        return jsonify(returnValue)
+    except Exception as e:
+        return jsonify({"error": "Failed to execute custom query", "details": str(e)}), 500
+    
 if __name__ == '__main__':
     app.run(port=5000)
