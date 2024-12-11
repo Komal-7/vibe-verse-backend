@@ -1,14 +1,25 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from rdflib import Graph
-from queries import CUSTOM_QUERIES
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
+
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)
+
+# Spotify API setup
+SPOTIFY_CLIENT_ID = 'your_client_id'
+SPOTIFY_CLIENT_SECRET = 'your_client_secret'
+
+spotify = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
+    client_id=SPOTIFY_CLIENT_ID,
+    client_secret=SPOTIFY_CLIENT_SECRET
+))
 
 # Load RDF data into an RDFLib Graph
-rdf_file_path = "vibe-verse-backend/songs_data.rdf"  # Path to your RDF file
+rdf_file_path = "vibe-verse-backend/songs_data.rdf"
 graph = Graph()
-graph.parse(rdf_file_path, format="xml")  # Adjust format if not XML
+graph.parse(rdf_file_path, format="xml")
 
 # Define filters
 MOOD_FILTERS = {
@@ -17,24 +28,28 @@ MOOD_FILTERS = {
     "energetic": "?energy > 0.8 && ?danceability > 0.6",
     "sad": "?energy < 0.4 && ?valence < 0.4",
     "relaxed": "?energy < 0.5 && ?acousticness > 0.5 && ?loudness < -10",
+    "romantic": "?tempo < 100 && ?valence > 0.5 && ?acousticness > 0.4",  
+    "melancholic": "?energy < 0.3 && ?valence < 0.4 && ?acousticness > 0.8",
 }
+
 ACTIVITY_FILTERS = {
     'workout': '?energy > 0.8 && ?tempo > 120 && ?danceability > 0.6',
     'study': '?energy < 0.5 && ?instrumentalness > 0.5 && ?speechiness < 0.3',
     'party': '?danceability > 0.8 && ?energy > 0.7 && ?loudness > -5',
-    'meditation': '?energy < 0.3 && ?acousticness > 0.8 && ?valence > 0.5',
+    'meditation': "?energy < 0.4 && ?acousticness > 0.6 && ?valence > 0.4",  
     'driving': '?energy > 0.6 && ?tempo > 100 && ?tempo < 140 && ?valence > 0.5',
+    'relaxing': '?energy < 0.4 && ?valence > 0.5',
 }
-# Custom combinations filters
+
 CUSTOM_COMBINATIONS_FILTERS = {
-    'intense focus for study': '?energy > 0.6 && ?valence > 0.7 && ?instrumentalness > 0.5',
-    'peaceful joy in meditation': '?energy < 0.3 && ?valence > 0.8 && ?acousticness > 0.8',
     'bright energy for driving': '?energy > 0.5 && ?valence > 0.6 && ?tempo >= 100',
     'deep calm in meditation practice': '?energy < 0.2 && ?acousticness > 0.9',
     'high energy for workout sessions': '?energy > 0.8 && ?tempo > 120 && ?danceability > 0.6',
+    'romantic with low tempo': '?tempo < 90 && ?valence > 0.7',
+    'melancholic with acoustic feel': '?energy < 0.3 && ?acousticness > 0.8',
     'vibrant energy for party time': '?danceability > 0.8 && ?energy > 0.7',
     'light effort during workout': '?energy < 0.5 && ?danceability > 0.6',
-    'calm study time': '?energy < 0.4 && ?instrumentalness > 0.6',
+    'easy focus during study time': '?energy < 0.4 && ?instrumentalness > 0.6',
     'relaxed ride for driving through nature': '?energy < 0.5 && ?tempo <= 100',
 }
 
@@ -42,14 +57,13 @@ CUSTOM_COMBINATIONS_FILTERS = {
 def recommend_music():
     data = request.json
     filter_key = data.get("filter", "").lower().strip()
+    print("Received Filter Key:", filter_key)
     filter_type = data.get("filterType", "popularity").lower()
-    filter_condition = (
-                MOOD_FILTERS.get(filter_key) or 
-                ACTIVITY_FILTERS.get(filter_key) or 
-                CUSTOM_COMBINATIONS_FILTERS.get(filter_key)
-            )
+
+    all_filters = {**MOOD_FILTERS, **ACTIVITY_FILTERS, **CUSTOM_COMBINATIONS_FILTERS}
+    filter_condition = all_filters.get(filter_key)
     if not filter_condition:
-        return jsonify({"error": "Invalid filter selected"}), 400
+        return jsonify({"error": f"Invalid filter selected: {filter_key}"}), 400
 
     sort_clause = (
         "ORDER BY DESC(?popularity)" if filter_type == "popularity" else "ORDER BY RAND()"
@@ -57,25 +71,25 @@ def recommend_music():
 
     sparql_query = f"""
         PREFIX rdf: <http://www.semanticweb.org/musicontology#>
-                SELECT ?name ?artistName
-                WHERE {{
-                    ?track a rdf:Track .
-                    ?track rdf:name ?name .
-                    ?track rdf:performedBy ?artist .
-                    ?artist rdf:name ?artistName .
-                    ?track rdf:popularity ?popularity .
+        SELECT ?name ?artistName
+        WHERE {{
+            ?track a rdf:Track .
+            ?track rdf:name ?name .
+            ?track rdf:performedBy ?artist .
+            ?artist rdf:name ?artistName .
+            ?track rdf:popularity ?popularity .
 
-                    ?track rdf:energy ?energy .
-                    ?track rdf:valence ?valence .
-                    ?track rdf:danceability ?danceability .
-                    ?track rdf:acousticness ?acousticness .
-                    ?track rdf:loudness ?loudness .
-                    ?track rdf:tempo ?tempo .
-                    ?track rdf:instrumentalness ?instrumentalness .
-                    ?track rdf:speechiness ?speechiness .
+            ?track rdf:energy ?energy .
+            ?track rdf:valence ?valence .
+            ?track rdf:danceability ?danceability .
+            ?track rdf:acousticness ?acousticness .
+            ?track rdf:loudness ?loudness .
+            ?track rdf:tempo ?tempo .
+            ?track rdf:instrumentalness ?instrumentalness .
+            ?track rdf:speechiness ?speechiness .
 
-                    FILTER ({filter_condition})
-                }}
+            FILTER ({filter_condition})
+        }}
         {sort_clause}
     """
     try:
@@ -84,47 +98,68 @@ def recommend_music():
             {"trackName": str(row.name), "artistName": str(row.artistName)}
             for row in results
         ]
-        returnValue = {
-            "query": sparql_query.strip(),  # Include the current query
-            "recommendations": recommendations,  # Include the recommendations
-        }
-        return jsonify(returnValue)
+        if len(recommendations) == 0:
+            return jsonify({"error": "Not enough recommendations for the selected filter"}), 404
+
+        return jsonify({"query": sparql_query.strip(), "recommendations": recommendations})
     except Exception as e:
-        return jsonify({"error": "Failed to fetch recommendations"}), 500
-
-def get_custom_query_sparql(query_key):
-    return CUSTOM_QUERIES.get(query_key)
-
-@app.route('/api/custom-query', methods=['POST'])
-def execute_custom_query():
+        return jsonify({"error": "Failed to fetch recommendations", "details": str(e)}), 500
+    
+@app.route('/api/search', methods=['POST'])
+def search():
     data = request.json
-    query_key = data.get("filter", "").lower().strip()
-    sparql_query = get_custom_query_sparql(query_key)
-    if not sparql_query:
-        return jsonify({"error": "Invalid custom query selected"}), 400
+    query = data.get("query", "").strip().lower()
+    
+    if not query:
+        return jsonify({"error": "Search query cannot be empty"}), 400
 
+    sparql_query = f"""
+        PREFIX rdf: <http://www.semanticweb.org/musicontology#>
+        SELECT ?name ?artistName
+        WHERE {{
+            ?track a rdf:Track .
+            ?track rdf:name ?name .
+            ?track rdf:performedBy ?artist .
+            ?artist rdf:name ?artistName .
+            FILTER (CONTAINS(LCASE(?name), "{query}") || CONTAINS(LCASE(?artistName), "{query}"))
+        }}
+    """
     try:
-        print(sparql_query)
         results = graph.query(sparql_query)
-        if query_key == "get all artist names":
-            response = [{"artistName": str(row.artistName)} for row in results]
-        elif query_key == "all albums of coldplay":
-            response = [{"albumName": str(row.albumName)} for row in results]
-        elif query_key == "get count and avg popularity of taylor swift's tracks for each album":
-            response = [{"albumName": str(row.albumName), "count": str(row.songCount),  "averagePopularity": str(row.averagePopularity)} for row in results]
-        elif query_key == "rewind to the 2000s" :
-            response = [{"trackName": str(row.trackName),"artistName": str(row.artistName),"releaseDate": str(row.releaseDate),"popularity": str(row.popularity)} for row in results]
-        elif query_key == "same energy as song calm down" :
-            response = [{"similarTrackName": str(row.similarTrackName),"artistName": str(row.artistName),"energy": str(row.energy)} for row in results]
-        else:
-            response = []
-        returnValue = {
-            "query": sparql_query.strip(),  # Include the current query
-            "recommendations": response,  # Include the recommendations
-        }
-        return jsonify(returnValue)
+        search_results = [
+            {"trackName": str(row.name), "artistName": str(row.artistName)}
+            for row in results
+        ]
+        if not search_results:
+            return jsonify({"message": "No results found for your search query."}), 200
+        return jsonify(search_results)
     except Exception as e:
-        return jsonify({"error": "Failed to execute custom query", "details": str(e)}), 500
+        return jsonify({"error": "Failed to execute search", "details": str(e)}), 500
+
+    
+@app.route('/api/surprise', methods=['GET'])
+def surprise_me():
+    sparql_query = """
+        PREFIX rdf: <http://www.semanticweb.org/musicontology#>
+        SELECT ?name ?artistName
+        WHERE {
+            ?track a rdf:Track .
+            ?track rdf:name ?name .
+            ?track rdf:performedBy ?artist .
+            ?artist rdf:name ?artistName .
+        }
+        ORDER BY RAND()
+        LIMIT 25
+    """
+    try:
+        results = graph.query(sparql_query)
+        recommendations = [
+            {"trackName": str(row.name), "artistName": str(row.artistName)}
+            for row in results
+        ]
+        return jsonify(recommendations)
+    except Exception as e:
+        return jsonify({"error": "Failed to fetch random songs", "details": str(e)}), 500
 
 
 if __name__ == '__main__':
