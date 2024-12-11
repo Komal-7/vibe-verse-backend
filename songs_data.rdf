@@ -1161,27 +1161,6 @@
     <ns1:performedBy rdf:resource="_:artist_6k3VxIg6CguU2nNKIEswIZ"/>
     <ns1:partOfAlbum rdf:resource="_:album_6k3VxIg6CguU2nNKIEswIZ"/>
   </rdf:Description>
-  <rdf:Description rdf:about="_:track_1vOse3C0tlgBloOdL6NAWj">
-    <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Track"/>
-    <ns1:name>Track</ns1:name>
-    <ns1:popularity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</ns1:popularity>
-    <ns1:acousticness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.578</ns1:acousticness>
-    <ns1:danceability rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.205</ns1:danceability>
-    <ns1:duration_ms rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">73953</ns1:duration_ms>
-    <ns1:energy rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.999</ns1:energy>
-    <ns1:instrumentalness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0316</ns1:instrumentalness>
-    <ns1:key rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</ns1:key>
-    <ns1:liveness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.907</ns1:liveness>
-    <ns1:loudness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-12.719</ns1:loudness>
-    <ns1:mode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns1:mode>
-    <ns1:speechiness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0904</ns1:speechiness>
-    <ns1:tempo rdf:datatype="http://www.w3.org/2001/XMLSchema#float">124.409</ns1:tempo>
-    <ns1:time_signature rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</ns1:time_signature>
-    <ns1:valence rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1e-05</ns1:valence>
-    <ns1:releaseDate>2022-09-23</ns1:releaseDate>
-    <ns1:performedBy rdf:resource="_:artist_1vOse3C0tlgBloOdL6NAWj"/>
-    <ns1:partOfAlbum rdf:resource="_:album_1vOse3C0tlgBloOdL6NAWj"/>
-  </rdf:Description>
   <rdf:Description rdf:about="_:track_3yfqSUWxFvZELEM4PmlwIR">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Track"/>
     <ns1:name>The Real Slim Shady</ns1:name>
@@ -9740,10 +9719,6 @@
     <ns1:performedBy rdf:resource="_:artist_5vGZFrchhoGIKeLNihJLQJ"/>
     <ns1:partOfAlbum rdf:resource="_:album_5vGZFrchhoGIKeLNihJLQJ"/>
   </rdf:Description>
-  <rdf:Description rdf:about="_:artist_7sgpj84ERPCQqbLWKXWGtr">
-    <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Artist"/>
-    <ns1:name>iwrotehaikusaboutcannibalisminyouryearbook</ns1:name>
-  </rdf:Description>
   <rdf:Description rdf:about="_:track_0rIAC4PXANcKmitJfoqmVm">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Track"/>
     <ns1:name>Motivation</ns1:name>
@@ -16341,27 +16316,6 @@
     <ns1:releaseDate>2007-01-01</ns1:releaseDate>
     <ns1:performedBy rdf:resource="_:artist_2bLqfJjuC5syrsgDsZfGmn"/>
     <ns1:partOfAlbum rdf:resource="_:album_2bLqfJjuC5syrsgDsZfGmn"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="_:track_7sgpj84ERPCQqbLWKXWGtr">
-    <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Track"/>
-    <ns1:name>track four</ns1:name>
-    <ns1:popularity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</ns1:popularity>
-    <ns1:acousticness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.00457</ns1:acousticness>
-    <ns1:danceability rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.192</ns1:danceability>
-    <ns1:duration_ms rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65734</ns1:duration_ms>
-    <ns1:energy rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.827</ns1:energy>
-    <ns1:instrumentalness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.851</ns1:instrumentalness>
-    <ns1:key rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</ns1:key>
-    <ns1:liveness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.551</ns1:liveness>
-    <ns1:loudness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-6.609</ns1:loudness>
-    <ns1:mode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns1:mode>
-    <ns1:speechiness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0538</ns1:speechiness>
-    <ns1:tempo rdf:datatype="http://www.w3.org/2001/XMLSchema#float">84.722</ns1:tempo>
-    <ns1:time_signature rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</ns1:time_signature>
-    <ns1:valence rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.351</ns1:valence>
-    <ns1:releaseDate>2004-10-03</ns1:releaseDate>
-    <ns1:performedBy rdf:resource="_:artist_7sgpj84ERPCQqbLWKXWGtr"/>
-    <ns1:partOfAlbum rdf:resource="_:album_7sgpj84ERPCQqbLWKXWGtr"/>
   </rdf:Description>
   <rdf:Description rdf:about="_:track_0WSEq9Ko4kFPt8yo3ICd6T">
     <rdf:type rdf:resource="http://www.semanticweb.org/musicontology#Track"/>

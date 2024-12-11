@@ -104,7 +104,6 @@ def execute_custom_query():
         return jsonify({"error": "Invalid custom query selected"}), 400
 
     try:
-        print(sparql_query)
         results = graph.query(sparql_query)
         if query_key == "get all artist names":
             response = [{"artistName": str(row.artistName)} for row in results]
@@ -116,6 +115,10 @@ def execute_custom_query():
             response = [{"trackName": str(row.trackName),"artistName": str(row.artistName),"releaseDate": str(row.releaseDate),"popularity": str(row.popularity)} for row in results]
         elif query_key == "same energy as song calm down" :
             response = [{"similarTrackName": str(row.similarTrackName),"artistName": str(row.artistName),"energy": str(row.energy)} for row in results]
+        elif query_key == "gradual tempo increase" :
+            response = [{"trackName": str(row.trackName),"tempoRange": str(row.tempoRange),"tempo": str(row.tempo)} for row in results]
+        elif query_key == "transition my mood" :
+            response = [{"trackName": str(row.trackName),"energy": str(row.energy),"valence": str(row.valence),"valenceRange": str(row.valenceRange)} for row in results]
         else:
             response = []
         returnValue = {

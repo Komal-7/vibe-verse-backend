@@ -1,9 +1,38 @@
 
 # Define the custom queries
 CUSTOM_QUERIES = {
+    "gradual tempo increase": """
+        PREFIX rdf: <http://www.semanticweb.org/musicontology#>
+        SELECT ?tempoRange (SAMPLE(?selectedTrack) AS ?trackName) ?tempo
+        WHERE {   
+            ?track a rdf:Track ;
+                    rdf:name ?selectedTrack ;
+                    rdf:energy ?energy ;
+                    rdf:tempo ?tempo .
+                    
+            BIND(FLOOR(?tempo / 5) * 5 AS ?tempoRange)
+            
+            FILTER(?tempo >= 100 && ?energy > 0.7)
+        }
+        GROUP BY ?tempoRange
+        ORDER BY ?tempoRange
+    """,
+    "transition my mood": """
+        PREFIX rdf: <http://www.semanticweb.org/musicontology#>
+        SELECT ?valenceRange (SAMPLE(?selectedTrack) AS ?trackName) ?valence ?energy
+        WHERE {
+            ?track a rdf:Track ;
+                    rdf:name ?selectedTrack ;
+                    rdf:energy ?energy ;
+                    rdf:valence ?valence .
+            BIND(FLOOR(?valence * 10) / 10 AS ?valenceRange)
+        }
+        GROUP BY ?valenceRange
+        ORDER BY ?valenceRange
+    """,
     "get all artist names": """
         PREFIX rdf: <http://www.semanticweb.org/musicontology#>
-        SELECT DISTINCT ?artistName ?trackName
+        SELECT DISTINCT ?artistName
         WHERE {
             ?artist a rdf:Artist .
             ?artist rdf:name ?artistName .
@@ -70,6 +99,3 @@ CUSTOM_QUERIES = {
         ORDER BY ?similarTrackName
     """
 }
-
-
-
