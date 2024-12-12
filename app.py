@@ -16,10 +16,9 @@ MOOD_FILTERS = {
     "happy": "?energy > 0.7 && ?valence > 0.7",
     "calm": "?energy < 0.4 && ?valence > 0.5 && ?acousticness > 0.6",
     "energetic": "?energy > 0.8 && ?danceability > 0.6",
-    "sad": "?energy < 0.4 && ?valence < 0.4",
     "relaxed": "?energy < 0.5 && ?acousticness > 0.5 && ?loudness < -10",
     "romantic": "?tempo < 100 && ?valence > 0.5 && ?acousticness > 0.4",  
-    "melancholic": "?energy < 0.3 && ?valence < 0.4 && ?acousticness > 0.8",
+    "melancholic": "?energy < 0.3 && ?valence < 0.4",
 }
 
 ACTIVITY_FILTERS = {
@@ -33,14 +32,9 @@ ACTIVITY_FILTERS = {
 
 CUSTOM_COMBINATIONS_FILTERS = {
     'bright energy for driving': '?energy > 0.5 && ?valence > 0.6 && ?tempo >= 100',
-    'deep calm in meditation practice': '?energy < 0.2 && ?acousticness > 0.9',
-    'high energy for workout sessions': '?energy > 0.8 && ?tempo > 120 && ?danceability > 0.6',
-    'romantic with low tempo': '?tempo < 90 && ?valence > 0.7',
     'melancholic with acoustic feel': '?energy < 0.3 && ?acousticness > 0.8',
-    'vibrant energy for party time': '?danceability > 0.8 && ?energy > 0.7',
     'light effort during workout': '?energy < 0.5 && ?danceability > 0.6',
-    'calm study time': '?energy < 0.4 && ?instrumentalness > 0.6',
-    'relaxed ride for driving through nature': '?energy < 0.5 && ?tempo <= 100',
+    'relaxed ride for driving': '?energy < 0.5 && ?tempo <= 100',
 }
 
 @app.route('/api/recommend', methods=['POST'])
@@ -122,7 +116,7 @@ def search():
         ]
         if not search_results:
             return jsonify({"message": "No results found for your search query."}), 200
-        return jsonify(search_results)
+        return jsonify({"query": sparql_query.strip(), "recommendations": search_results})
     except Exception as e:
         return jsonify({"error": "Failed to execute search", "details": str(e)}), 500
 
@@ -147,7 +141,7 @@ def surprise_me():
             {"trackName": str(row.name), "artistName": str(row.artistName)}
             for row in results
         ]
-        return jsonify(recommendations)
+        return jsonify({"query": sparql_query.strip(), "recommendations": recommendations})
     except Exception as e:
         return jsonify({"error": "Failed to fetch random songs", "details": str(e)}), 500
 
